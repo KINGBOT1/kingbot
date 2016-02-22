@@ -224,7 +224,18 @@ function create_config( )
     "invite",
     "all",
     "leave_ban",
-    "admin"
+    "admin",
+    "welcome",
+    "tex",
+    "info",
+    "nerkh",
+    "leave",
+    "id",
+    "chat",
+    "calculator",
+    "tagall",
+    
+    
     },
     sudo_users = {181803152},{135693512},--Sudo users
     disabled_channels = {},
@@ -241,8 +252,6 @@ topkecleon
 Vamptacus
 
 Our channels
-@teleseedch [English]
-@iranseed [persian]
 ]],
     help_text_realm = [[
 Realm Commands:
@@ -388,11 +397,15 @@ __________________________
 —------------------------------—
 تگ : صدا کردن افراد گروه
 —---------------------—
+ نرخ : نرخ ساخت گروه
+—----------------------
 اینفو : نمایش مشخصات شما
 —---------------------—
+حساب کن  2+6 : ماشین حساب 
+—----------------------
 نیاز نیست از '!' و '/' استفاده کنید*
 _______________________________
-KING BOT 
+KING BOT
 ]]
   }
   serialize_to_file(config, './data/config.lua')
