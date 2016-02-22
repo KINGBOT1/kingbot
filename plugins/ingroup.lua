@@ -1004,7 +1004,7 @@ local function run(msg, matches)
 	local username = string.gsub(matches[2], '@', '')
 	return res_user(username, promote_demote_res, cbres_extra)
     end
-    if matches[1] == 'مقام دادن' and not matches[2] then
+    if matches[1] == 'حذف مدیر' and not matches[2] then
       if not is_owner(msg) then
         return "فقط توسط صاحب گروه"
       end
@@ -1012,7 +1012,7 @@ local function run(msg, matches)
           msgr = get_message(msg.reply_id, demote_by_reply, false)
       end
     end
-    if matches[1] == 'مقام دادن' and matches[2] then
+    if matches[1] == 'حذف مدیر' and matches[2] then
       if not is_momod(msg) then
         return
       end
@@ -1020,13 +1020,13 @@ local function run(msg, matches)
         return "فقط توسط صاحب گروه"
       end
       if string.gsub(matches[2], "@", "") == msg.from.username and not is_owner(msg) then
-        return "شما نمیتوانید به خود مقام بدهید"
+        return "شما نمیتوانید خود را تنزل دهید"
       end
 	local member = matches[2]
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] demoted @".. member)
 	local cbres_extra = {
 	chat_id = msg.to.id,
-        mod_cmd = 'تنزل', 
+        mod_cmd = 'حذف مدیر', 
 	from_id = msg.from.id
 	}
 	local username = matches[2]
@@ -1344,7 +1344,7 @@ end
 
 return {
   patterns = {
-"^(اضافه)$",
+  "^(اضافه)$",
   "^(اضافه) (ریلیم)$",
   "^(حذف)$",
   "^(حذف) (ریلیم)$",
@@ -1353,13 +1353,13 @@ return {
   "^(تنظیم نام) (.*)$",
   "^(تنظیم عکس)$",
   "^(ترفیع) (.*)$",
-  "^(مقام دادن)",
+  "^(حذف مدیر)",
   "^(راهنما)$",
   "^(پاک کردن) (.*)$",
   "^(kill) (chat)$",
   "^(kill) (realm)$",
-  "^(مقام دادن) (.*)$",
-  "^(مقام دادن)",
+  "^(حذف مدیر) (.*)$",
+  "^(حذف مدیر)",
   "^(تنظیم) ([^%s]+) (.*)$",
   "^(قفل) (.*)$",
   "^(دارنده) (%d+)$",
